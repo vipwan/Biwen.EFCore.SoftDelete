@@ -42,6 +42,9 @@ public class Blog : ISoftDeleted
 
     //请注意这里的IsDeleted默认必须是false!表示未删除
     public bool IsDeleted { get; set; } = false;
+    //强制删除标记，如果为true,则不会进入软删除流程，直接删除
+    public bool? ForceDelete { get; set; }
+
 }
 
 ```
@@ -97,6 +100,21 @@ var serviceProvider = new ServiceCollection()
 
 
 ### Enjoy ! 
+
+```csharp
+
+//Delete 1 模拟软删除
+var blog1 = db.Blogs.FirstOrDefault(x => x.Id == 1);
+db.Remove(blog1!);
+db.SaveChanges();
+
+//Delete 3 模拟强制删除
+var blog3 = db.Blogs.FirstOrDefault(x => x.Id == 3);
+db.Remove(blog3!, true);
+db.SaveChanges();
+
+```
+
 
 
 ## License 
