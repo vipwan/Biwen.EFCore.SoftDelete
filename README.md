@@ -9,7 +9,7 @@
 
 ## NuGet 包
 
-- dotnet add package Biwen.EFCore.SoftDelete --version 1.0.0
+- dotnet add package Biwen.EFCore.SoftDelete --version 1.1.0
 
 
 ## 开发环境
