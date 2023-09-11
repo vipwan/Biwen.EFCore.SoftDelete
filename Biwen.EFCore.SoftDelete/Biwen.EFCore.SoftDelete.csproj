@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<Version>1.0.0</Version>
+		<PackageVersion>1.0.0</PackageVersion>
+		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+		<PackageProjectUrl>https://github.com/vipwan/Biwen.EFCore.SoftDelete</PackageProjectUrl>
+		<Authors>万雅虎</Authors>
+		<RepositoryUrl>https://github.com/vipwan/Biwen.Settings</RepositoryUrl>
+		<Title>Biwen.EFCore.SoftDelete</Title>
+		<Description>Biwen.EFCore.SoftDelete ,EFCore软删除扩展</Description>
+		<Copyright>MIT</Copyright>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageTags>EFCore;SoftDelete;netcore</PackageTags>
+		<PackageReleaseNotes>软删除扩展</PackageReleaseNotes>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0" />
+	</ItemGroup>
+
+</Project>
