@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 namespace Biwen.EFCore.SoftDelete
 {
     /// <summary>
-    /// SoftDeleteDbContext
+    /// Base SoftDelete DbContext
     /// </summary>
     public abstract class SoftDeleteDbContext : DbContext
     {
@@ -18,12 +18,10 @@ namespace Biwen.EFCore.SoftDelete
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
             // 省略其它无关的代码
             foreach (var entityType in modelBuilder.Model.GetEntityTypes())
             {
                 // 省略其它无关的代码
-
                 if (typeof(ISoftDeleted).IsAssignableFrom(entityType.ClrType))
                 {
                     entityType.AddSoftDeleteQueryFilter();
@@ -55,10 +53,9 @@ namespace Biwen.EFCore.SoftDelete
             this IMutableEntityType entityData)
         {
             var methodToCall = typeof(SoftDeleteQueryExtension)
-                .GetMethod(nameof(GetSoftDeleteFilter)!,
-                    BindingFlags.NonPublic | BindingFlags.Static)!
+                .GetMethod(nameof(GetSoftDeleteFilter)!, BindingFlags.NonPublic | BindingFlags.Static)!
                 .MakeGenericMethod(entityData.ClrType);
-            var filter = methodToCall.Invoke(null, new object[] { });
+            var filter = methodToCall.Invoke(null, Array.Empty<object>());
             entityData.SetQueryFilter((LambdaExpression)filter!);
         }
 
