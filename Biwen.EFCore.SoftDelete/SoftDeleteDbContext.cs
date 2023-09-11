@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Metadata;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq.Expressions;
 
 namespace Biwen.EFCore.SoftDelete
@@ -29,6 +31,19 @@ namespace Biwen.EFCore.SoftDelete
             }
         }
 
+        /// <summary>
+        /// 强制删除扩展
+        /// </summary>
+        /// <typeparam name="TEntity"></typeparam>
+        /// <param name="entity"></param>
+        /// <param name="forceDelete">是否强制删除</param>
+        /// <returns></returns>
+        public EntityEntry Remove<TEntity>([NotNull] TEntity entity, bool? forceDelete = false) where TEntity : class, ISoftDeleted
+        {
+            //强制删除
+            entity.ForceDelete = forceDelete;
+            return base.Remove(entity);
+        }
     }
 
     /// <summary>

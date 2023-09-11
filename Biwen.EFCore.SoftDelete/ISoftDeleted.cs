@@ -1,4 +1,6 @@
-﻿namespace Biwen.EFCore.SoftDelete
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Biwen.EFCore.SoftDelete
 {
 
     /// <summary>
@@ -9,7 +11,10 @@
         /// <summary>
         ///  是否已删除
         /// </summary>
-        public abstract bool IsDeleted { get; set; }
+        bool IsDeleted { get; set; }
+
+        [NotMapped]
+        bool? ForceDelete { get; set; }
 
     }
 }

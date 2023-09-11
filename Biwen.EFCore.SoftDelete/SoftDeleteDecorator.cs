@@ -13,6 +13,13 @@ namespace Biwen.EFCore.SoftDelete
                 var entries = _dbContext.ChangeTracker.Entries().Where(x => x.Entity is ISoftDeleted && x.State == EntityState.Deleted);
                 foreach (var entry in entries)
                 {
+                    var del = entry.Entity as ISoftDeleted;
+                    if (del != null && del!.ForceDelete != null && del.ForceDelete == true)
+                    {
+                        //如果是强制删除，直接删除
+                        continue;
+                    }
+
                     entry.State = EntityState.Modified;
                     entry.CurrentValues[nameof(ISoftDeleted.IsDeleted)] = true;
                 }

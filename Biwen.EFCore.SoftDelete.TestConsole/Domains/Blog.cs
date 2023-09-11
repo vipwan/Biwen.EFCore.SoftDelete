@@ -21,5 +21,7 @@ namespace Biwen.EFCore.SoftDelete.TestConsole.Domains
         public DateTime CreatedAtUtc { get; set; } = DateTime.UtcNow;
 
         public bool IsDeleted { get; set; } = false;
+
+        public bool? ForceDelete { get; set; }
     }
 }
