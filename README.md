@@ -80,6 +80,7 @@ var serviceProvider = new ServiceCollection()
 	    //使用你的数据库引擎
         options.UseInMemoryDatabase("test");
     })
+    //注册装饰器 important!
     .Decorate<TestDbContext>((ctx) => new SoftDeleteDecorator<TestDbContext>(ctx).DbContext)
     .BuildServiceProvider();
 
