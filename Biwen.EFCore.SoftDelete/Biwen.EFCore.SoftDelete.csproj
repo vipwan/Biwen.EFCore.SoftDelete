@@ -12,7 +12,7 @@
 		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
 		<PackageProjectUrl>https://github.com/vipwan/Biwen.EFCore.SoftDelete</PackageProjectUrl>
 		<Authors>万雅虎</Authors>
-		<RepositoryUrl>https://github.com/vipwan/Biwen.Settings</RepositoryUrl>
+		<RepositoryUrl>https://github.com/vipwan/Biwen.EFCore.SoftDelete</RepositoryUrl>
 		<Title>Biwen.EFCore.SoftDelete</Title>
 		<Description>Biwen.EFCore.SoftDelete ,EFCore软删除扩展</Description>
 		<Copyright>MIT</Copyright>
@@ -22,10 +22,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <None Include="..\README.md">
-	    <Pack>True</Pack>
-	    <PackagePath>\</PackagePath>
-	  </None>
+		<None Include="..\README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
 	</ItemGroup>
 
 	<ItemGroup>
