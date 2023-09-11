@@ -11,7 +11,7 @@ var serviceProvider = new ServiceCollection()
     {
         options.UseInMemoryDatabase("test");
     })
-    .Decorate<TestDbContext>((ctx) => new SoftDeleteDecorator<TestDbContext>(ctx).DbContext)
+    //.Decorate<TestDbContext>((ctx) => new SoftDeleteDecorator<TestDbContext>(ctx).DbContext)
     .BuildServiceProvider();
 
 

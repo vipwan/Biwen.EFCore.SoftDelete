@@ -58,6 +58,8 @@ public class TestDbContext : SoftDeleteDbContext
 	public TestDbContext(DbContextOptions<TestDbContext> options)
 		: base(options)
 	{
+           //使用软删除
+           this.UseSoftDelete();
 	}
     //...
 	public DbSet<Blog> Blogs { get; set; }
@@ -72,7 +74,7 @@ public class TestDbContext : SoftDeleteDbContext
 
 ```
 
-### step 2 装饰器注册
+### step 2 注册DbContext
 
 
   ```csharp
@@ -83,8 +85,6 @@ var serviceProvider = new ServiceCollection()
 	    //使用你的数据库引擎
         options.UseInMemoryDatabase("test");
     })
-    //注册装饰器 important!
-    .Decorate<TestDbContext>((ctx) => new SoftDeleteDecorator<TestDbContext>(ctx).DbContext)
     .BuildServiceProvider();
 
    ```
