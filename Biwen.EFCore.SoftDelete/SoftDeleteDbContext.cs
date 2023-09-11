@@ -49,8 +49,7 @@ namespace Biwen.EFCore.SoftDelete
     /// </summary>
     static class SoftDeleteQueryExtension
     {
-        public static void AddSoftDeleteQueryFilter(
-            this IMutableEntityType entityData)
+        public static void AddSoftDeleteQueryFilter(this IMutableEntityType entityData)
         {
             var methodToCall = typeof(SoftDeleteQueryExtension)
                 .GetMethod(nameof(GetSoftDeleteFilter)!, BindingFlags.NonPublic | BindingFlags.Static)!
@@ -59,13 +58,10 @@ namespace Biwen.EFCore.SoftDelete
             entityData.SetQueryFilter((LambdaExpression)filter!);
         }
 
-        private static LambdaExpression GetSoftDeleteFilter<TEntity>()
-            where TEntity : class, ISoftDeleted
+        private static LambdaExpression GetSoftDeleteFilter<TEntity>() where TEntity : class, ISoftDeleted
         {
             Expression<Func<TEntity, bool>> filter = x => !x.IsDeleted;
             return filter;
         }
     }
-
-
 }
