@@ -20,9 +20,14 @@ serviceProvider.GetRequiredService<TestDbContext>().Database.EnsureCreated();
 using var sp = serviceProvider.CreateScope();
 var db = sp.ServiceProvider.GetRequiredService<TestDbContext>()!;
 
-
 //delete all rows
 db.Database.ExecuteSqlRaw("DELETE FROM blogs");
+
+
+Console.WriteLine("-----↑----init and  clear db -----↑--------");
+
+
+
 
 List<int> ids = new();
 
@@ -52,25 +57,26 @@ foreach (var blog in blogs)
     Console.WriteLine($"{blog.Id}-{blog.Title}-{blog.IsDeleted}");
 }
 
-Console.WriteLine("-----↑----初始化的数据-----↑--------");
+Console.WriteLine("-----↑----init db rows-----↑--------");
 
-//Delete 1 模拟软删除
+//Delete 1 SoftDeleted
 var blog1 = db.Blogs.FirstOrDefault(x => x.Id == ids[0]);
 db.Remove(blog1!);
 db.SaveChanges();
 
-//Delete 2 模拟软删除
+//Delete 2 SoftDeleted
 var blog2 = db.Blogs.FirstOrDefault(x => x.Id == ids[1]);
 db.Remove(blog2!);
 db.SaveChanges();
 
 
-//Delete 3 模拟强制删除
+//Delete 3 HardDeleted
 var blog3 = db.Blogs.FirstOrDefault(x => x.Id == ids[2]);
 if (blog3 != null)
 {
     db.Remove(blog3!, true);
     db.SaveChanges();
+    Console.WriteLine($"-----↑---- hard deleted id = {ids[2]}-------↑-------");
 }
 
 
@@ -80,8 +86,7 @@ foreach (var blog in blogs2)
     Console.WriteLine($"{blog.Id}-{blog.Title}-{blog.IsDeleted}");
 }
 
-Console.WriteLine("-----↑----删除后的数据-------↑-------");
-
+Console.WriteLine("-----↑----After Deleted (dont have soft deleted rows)-------↑-------");
 
 
 var blogs3 = db.Blogs.IgnoreQueryFilters().ToList();
@@ -90,7 +95,7 @@ foreach (var blog in blogs3)
     Console.WriteLine($"{blog.Id}-{blog.Title}-{blog.IsDeleted}");
 }
 
-Console.WriteLine("-----↑----包含软删除数据--------↑------");
+Console.WriteLine("-----↑----Contains All (have soft deleted rows) --------↑------");
 
 
 Console.WriteLine("Hello, World!");
