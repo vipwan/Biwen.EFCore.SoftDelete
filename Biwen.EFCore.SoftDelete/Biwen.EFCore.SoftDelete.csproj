@@ -7,8 +7,8 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<Version>1.1.0</Version>
-		<PackageVersion>1.1.0</PackageVersion>
+		<Version>1.1.1</Version>
+		<PackageVersion>1.1.1</PackageVersion>
 		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
 		<PackageProjectUrl>https://github.com/vipwan/Biwen.EFCore.SoftDelete</PackageProjectUrl>
 		<Authors>万雅虎</Authors>
