@@ -22,6 +22,5 @@ namespace Biwen.EFCore.SoftDelete.TestConsole.Domains
 
         public bool IsDeleted { get; set; } = false;
 
-        public bool? ForceDelete { get; set; }
     }
 }
