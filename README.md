@@ -42,9 +42,6 @@ public class Blog : ISoftDeleted
 
     //请注意这里的IsDeleted默认必须是false!表示未删除
     public bool IsDeleted { get; set; } = false;
-    //强制删除标记，如果为true,则不会进入软删除流程，直接删除
-    public bool? ForceDelete { get; set; }
-
 }
 
 ```
