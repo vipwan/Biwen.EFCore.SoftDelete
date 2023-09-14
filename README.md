@@ -55,8 +55,6 @@ public class TestDbContext : SoftDeleteDbContext
 	public TestDbContext(DbContextOptions<TestDbContext> options)
 		: base(options)
 	{
-           //使用软删除
-           this.UseSoftDelete();
 	}
     //...
 	public DbSet<Blog> Blogs { get; set; }
@@ -90,7 +88,7 @@ var serviceProvider = new ServiceCollection()
 
 ```csharp
 
-//1. 请使用 DbSet.Remove 方法，不可使用批量删除方法:ExecuteDelete(),ExecuteDeleteAsync()
+//1. 请使用 DbSet.Remove() 方法，不可使用批量删除方法:ExecuteDelete(),ExecuteDeleteAsync()
 
 
 ```
