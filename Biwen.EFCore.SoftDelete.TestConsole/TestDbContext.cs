@@ -1,6 +1,5 @@
 ﻿using Biwen.EFCore.SoftDelete.TestConsole.Domains;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 
 namespace Biwen.EFCore.SoftDelete.TestConsole
 {
@@ -11,8 +10,7 @@ namespace Biwen.EFCore.SoftDelete.TestConsole
     {
         public TestDbContext(DbContextOptions<TestDbContext> options) : base(options)
         {
-            //使用软删除
-            //this.UseSoftDelete();
+
         }
 
         public DbSet<Blog> Blogs { get; set; }
