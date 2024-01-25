@@ -1,5 +1,6 @@
 ﻿using Biwen.EFCore.SoftDelete.TestConsole.Domains;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace Biwen.EFCore.SoftDelete.TestConsole
 {
