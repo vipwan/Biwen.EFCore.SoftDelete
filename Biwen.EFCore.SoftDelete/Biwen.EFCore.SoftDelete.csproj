@@ -1,14 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
+		<TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<Version>1.1.0</Version>
-		<PackageVersion>1.1.0</PackageVersion>
+		<Version>1.1.1</Version>
+		<PackageVersion>1.1.1</PackageVersion>
 		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
 		<PackageProjectUrl>https://github.com/vipwan/Biwen.EFCore.SoftDelete</PackageProjectUrl>
 		<Authors>万雅虎</Authors>
@@ -28,8 +28,16 @@
 		</None>
 	</ItemGroup>
 
-	<ItemGroup>
-		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.1" />
+	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0" />
 	</ItemGroup>
 
+	<ItemGroup Condition="'$(TargetFramework)' == 'net7.0'">
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.11" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0-rc.1.23419.6" />
+	</ItemGroup>
+	
 </Project>

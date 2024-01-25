@@ -12,6 +12,8 @@ namespace Biwen.EFCore.SoftDelete
     {
         protected SoftDeleteDbContext(DbContextOptions options) : base(options)
         {
+            //使用软删除
+            this.UseSoftDelete();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

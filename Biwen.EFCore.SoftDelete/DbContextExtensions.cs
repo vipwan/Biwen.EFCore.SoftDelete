@@ -7,7 +7,7 @@
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="context"></param>
-        public static void UseSoftDelete<T>(this T context) where T : SoftDeleteDbContext
+        internal static void UseSoftDelete<T>(this T context) where T : SoftDeleteDbContext
         {
             context.SavingChanges += (sender, args) =>
             {
