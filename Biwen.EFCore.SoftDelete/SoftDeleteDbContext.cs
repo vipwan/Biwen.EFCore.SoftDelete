@@ -35,7 +35,6 @@ namespace Biwen.EFCore.SoftDelete
         /// </summary>
         public bool ForceDelete { get; private set; } = false;
 
-
         /// <summary>
         /// 强制删除扩展
         /// </summary>
@@ -57,14 +56,14 @@ namespace Biwen.EFCore.SoftDelete
     /// <summary>
     /// Extension methods for <see cref="IMutableEntityType" />.
     /// </summary>
-    static class SoftDeleteQueryExtension
+    internal static class SoftDeleteQueryExtension
     {
         public static void AddSoftDeleteQueryFilter(this IMutableEntityType entityData)
         {
             var methodToCall = typeof(SoftDeleteQueryExtension)
                 .GetMethod(nameof(GetSoftDeleteFilter)!, BindingFlags.NonPublic | BindingFlags.Static)!
                 .MakeGenericMethod(entityData.ClrType);
-            var filter = methodToCall.Invoke(null, Array.Empty<object>());
+            var filter = methodToCall.Invoke(null, []);
             entityData.SetQueryFilter((LambdaExpression)filter!);
         }
 

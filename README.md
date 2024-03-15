@@ -18,9 +18,7 @@
 * [Rider 2022](https://www.jetbrains.com/rider) / [Visual Studio 2022](https://visualstudio.microsoft.com) / [Visual Studio Code](https://code.visualstudio.com)
 * [.NET 8.0](https://dotnet.microsoft.com/download/dotnet/8.0)
   
-
 ## 运行环境
-- [.NET 7.0](https://dotnet.microsoft.com/download/dotnet/7.0)
 - [.NET 8.0](https://dotnet.microsoft.com/download/dotnet/8.0)
 
 ## Easy to Use

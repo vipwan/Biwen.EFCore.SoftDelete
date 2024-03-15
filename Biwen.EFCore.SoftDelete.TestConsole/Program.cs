@@ -27,9 +27,7 @@ db.Database.ExecuteSqlRaw("DELETE FROM blogs");
 Console.WriteLine("-----↑----init and  clear db -----↑--------");
 
 
-
-
-List<int> ids = new();
+List<int> ids = [];
 
 int i = 1;
 while (i <= 5)

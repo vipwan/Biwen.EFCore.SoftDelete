@@ -1,13 +1,13 @@
 ﻿namespace Biwen.EFCore.SoftDelete
 {
-    public static class DbContextExtensions
+    internal static class DbContextExtensions
     {
         /// <summary>
         /// 使用软删除
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="context"></param>
-        internal static void UseSoftDelete<T>(this T context) where T : SoftDeleteDbContext
+        public static void UseSoftDelete<T>(this T context) where T : SoftDeleteDbContext
         {
             context.SavingChanges += (sender, args) =>
             {
@@ -18,10 +18,12 @@
                     {
                         continue;
                     }
+
                     entry.State = EntityState.Modified;
                     entry.CurrentValues[nameof(ISoftDeleted.IsDeleted)] = true;
                 }
             };
         }
+
     }
 }
