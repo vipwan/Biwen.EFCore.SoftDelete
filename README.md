@@ -15,7 +15,7 @@
 ## 开发环境
 
 * Windows 10
-* [Rider 2022](https://www.jetbrains.com/rider) / [Visual Studio 2022](https://visualstudio.microsoft.com) / [Visual Studio Code](https://code.visualstudio.com)
+* [Visual Studio 2022](https://visualstudio.microsoft.com) / [Visual Studio Code](https://code.visualstudio.com)
 * [.NET 8.0](https://dotnet.microsoft.com/download/dotnet/8.0)
   
 ## 运行环境
@@ -108,14 +108,12 @@ db.SaveChanges();
 
 ```
 
-
-
 ## License 
 - MIT
 
 ## 联系我
 - QQ:552175420
-- Email: vipwan#sina.com
+- Email: vipwan#outlook.com
 
 ## 项目地址
 
