@@ -1,4 +1,4 @@
-# Biwen.EFCore.SoftDelete
+﻿# Biwen.EFCore.SoftDelete
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/vipwan/Biwen.EFCore.SoftDelete/blob/master/LICENSE.txt) 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/vipwan/Biwen.EFCore.SoftDelete/pulls) 
@@ -16,10 +16,10 @@
 
 * Windows 10
 * [Visual Studio 2022](https://visualstudio.microsoft.com) / [Visual Studio Code](https://code.visualstudio.com)
-* [.NET 8.0](https://dotnet.microsoft.com/download/dotnet/8.0)
+* [.NET 8.0+](https://dotnet.microsoft.com/download/dotnet/8.0)
   
 ## 运行环境
-- [.NET 8.0](https://dotnet.microsoft.com/download/dotnet/8.0)
+- [.NET 8.0+](https://dotnet.microsoft.com/download/dotnet/8.0)
 
 ## Easy to Use
 
@@ -97,13 +97,13 @@ var serviceProvider = new ServiceCollection()
 ```csharp
 
 //Delete 1 模拟软删除
-var blog1 = db.Blogs.FirstOrDefault(x => x.Id == 1);
-db.Remove(blog1!);
+var blog1 = db.Blogs.Find(1);
+db.Remove(blog1);
 db.SaveChanges();
 
 //Delete 3 模拟强制删除
-var blog3 = db.Blogs.FirstOrDefault(x => x.Id == 3);
-db.Remove(blog3!, true);
+var blog3 = db.Blogs.Find(3);
+db.Remove(blog3, true);
 db.SaveChanges();
 
 ```
